@@ -53,6 +53,13 @@ var init = {
   addLayer: function() {
     init.map.addLayers([init.baseLayer, init.testLayer]);
     init.map.setCenter(new SuperMap.LonLat(14229438.5611, 4400366.9779), 1);
-    $("#popupWin").css("display", "block");
+
+    // 마커 추가시
+    markers.addMarker();
   }
+};
+
+// 공통기능 도구 (측정, 그림저장, 인쇄)
+var tool = {
+
 };

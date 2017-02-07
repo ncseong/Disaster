@@ -1,3 +1,4 @@
+/*상단 바*/
 #top-bar {
   background-color: #EFF0F0;
   width: 100%;
@@ -11,7 +12,23 @@
   padding-left: 1%;
   border-right: 1px solid #B7B7B8;
 }
+#tool {
+  position: absolute;
+  top: 48px;
+  right: 10px;
+  width: 8.1%;
+  height: 105px;
+  padding-right: 5px;
+  z-index: 9999;
+  background-color: #EFF0F0;
+}
+#tool>img {
+  border: 1px solid #B7B7B8;
+  width: 100%;
+  margin-left: 2px;
+}
 
+/*지도*/
 #map {
   height: 600px;
   width: 100%;
