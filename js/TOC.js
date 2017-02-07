@@ -27,10 +27,10 @@ var toc = {
     var layersList = "";
     for (var i = 0; i < subLayers.length; i++) {
       if (subLayers[i].visible === true) {
-        layersList += '<label class="checkbox" style="line-height: 28px; display: block"><input type="checkbox" class = "checkboxSel" id="layersList' + i + '" name="layersList" value="' + subLayers[i].name + '" checked=true title="Visible" />' + subLayers[i].name + '</label>';
+        layersList += '<label class="checkbox" style="line-height: 28px; display: block"><input type="checkbox" class = "checkboxSel" id="layersList' + i + '" name="layersList" value="' + subLayers[i].name + '" checked=true title="Visible" /> <img src="'+ urls.testMap + '/layers/' + subLayers[i].name.replace("#",".") +'@@재난연_테스트/legend" /> ' + subLayers[i].name + '</label>';
       }
       else {
-        layersList += '<label class="checkbox" style="line-height: 28px; display: block"><input type="checkbox" class = "checkboxSel" id="layersList' + i + '" name="layersList" value="' + subLayers[i].name + '" title="Visible" />' + subLayers[i].name + '</label>';
+        layersList += '<label class="checkbox" style="line-height: 28px; display: block"><input type="checkbox" class = "checkboxSel" id="layersList' + i + '" name="layersList" value="' + subLayers[i].name + '" title="Visible" /> <img src="'+ urls.testMap + '/layers/' + subLayers[i].name.replace("#",".") +'@@재난연_테스트/legend" /> ' + subLayers[i].name + '</label>';
       }
     }
     toc.showWindow(layersList);
