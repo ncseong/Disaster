@@ -17,26 +17,33 @@
     <script type="text/javascript" src="js/supermap/libs/VWorldLayer.js"></script>
     <script type="text/javascript" src="js/common.js"></script>
     <script type="text/javascript" src="js/addMarker.js"></script>
+    <script type="text/javascript" src="js/distanceMeasure.js"></script>
+    <script type="text/javascript" src="js/printMap.js"></script>
     <script type="text/javascript" src="js/TOC.js"></script>
+    <script type="text/javascript" src="js/supermap/libs/Measure.js"></script>
+    <script type="text/javascript" src="js/supermap/libs/MeasureCustom.js"></script>
     <script type="text/javascript" src="js/jQuery.js"></script>
 </head>
 <body onload="toc.initToc()">
-  <!-- 상단 메뉴 -->
-  <div id="top-bar">
-    <span id="btn_tool"><img class="tool-item" src="images/btn_tool_off.gif" alt=""></span>
-    <span id="info"><img class="tool-item" src="images/info_off.gif" alt=""></span>
-    <span id="area"><img class="tool-item" src="images/area_off.gif" alt=""></span>
-  </div>
+  <div id="wrapper">
+    <!-- 상단 메뉴 -->
+    <div id="top-bar">
+      <span id="btn_tool"><img class="tool-item" src="images/btn_tool_off.gif" alt=""></span>
+      <span id="info"><img class="tool-item" src="images/info_off.gif" alt=""></span>
+      <span id="area"><img class="tool-item" src="images/area_off.gif" alt=""></span>
+    </div>
 
-  <!-- <div id='toolbar'><div>-->
-  <div id='result' class='container'></div>
-  <div id="tool">
-    <img src="images/mesure_off.gif" alt="">
-    <img src="images/savepic_off.gif" alt="">
-    <img src="images/print_off.gif" alt="">
+    <!-- <div id='toolbar'><div>-->
+    <div id='result' class='container'></div>
+    <div id="tool">
+      <img id="distanceMeasure" src="images/distance_mesure_off.gif" alt="">
+      <img id="areaMeasure" src="images/area_mesure_off.gif" alt="">
+      <img src="images/savepic_off.gif" alt="">
+      <img id="printMap" src="images/print_off.gif" alt="">
+    </div>
+    <!-- <div id="layerSwitcher" draggable="true" class="resizable"></div> -->
+    <div id="map"></div>
+    <div id="legends"></div>
   </div>
-  <!-- <div id="layerSwitcher" draggable="true" class="resizable"></div> -->
-  <div id="map"></div>
-  <div id="legends"></div>
 </body>
 </html>

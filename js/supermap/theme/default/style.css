@@ -1,8 +1,138 @@
-﻿div.smMap {
+﻿@font-face {
+    font-family: 'supermap-icon';
+    src:    url('./fonts/supermap-icon.eot?ttrekr');
+    src:    url('./fonts/supermap-icon.eot?ttrekr#iefix') format('embedded-opentype'),
+    url('./fonts/supermap-icon.ttf?ttrekr') format('truetype'),
+    url('./fonts/supermap-icon.woff?ttrekr') format('woff'),
+    url('./fonts/supermap-icon.svg?ttrekr#supermap-icon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="supermapol-icons-"], [class*=" supermapol-icons-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'supermap-icon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.supermapol-icons-save:before {
+    content: "\e900";
+}
+.supermapol-icons-baselayer:before {
+    content: "\e901";
+}
+.supermapol-icons-marker:before {
+    content: "\e902";
+}
+.supermapol-icons-uncheck:before {
+    content: "\e903";
+}
+.supermapol-icons-checked:before {
+    content: "\e904";
+}
+.supermapol-icons-zoom-in:before {
+    content: "\e906";
+}
+.supermapol-icons-share:before {
+    content: "\e907";
+}
+.supermapol-icons-clear:before {
+    content: "\e908";
+    color: whitesmoke;
+}
+.supermapol-icons-setting:before {
+    content: "\e909";
+}
+.supermapol-icons-polygon:before {
+    content: "\e90a";
+}
+.supermapol-icons-default-layer:before {
+    content: "\e90b";
+}
+.supermapol-icons-uniE90C:before {
+    content: "\e90c";
+}
+.supermapol-icons-delete:before {
+    content: "\e90d";
+}
+.supermapol-icons-up:before {
+    content: "\e90e";
+}
+.supermapol-icons-warning:before {
+    content: "\e90f";
+}
+.supermapol-icons-back:before {
+    content: "\e910";
+}
+.supermapol-icons-retract:before {
+    content: "\e911";
+}
+.supermapol-icons-search:before {
+    content: "\e912";
+}
+.supermapol-icons-zoom-to:before {
+    content: "\e913";
+}
+.supermapol-icons-zoom-out:before {
+    content: "\e914";
+}
+.supermapol-icons-layers:before {
+    content: "\e915";
+}
+.supermapol-icons-add:before {
+    content: "\e916";
+}
+.supermapol-icons-addlayer:before {
+    content: "\e917";
+}
+.supermapol-icons-triangle:before {
+    content: "\e918";
+}
+.supermapol-icons-brush:before {
+    content: "\e919";
+}
+.supermapol-icons-more:before {
+    content: "\e91a";
+}
+.supermapol-icons-down:before {
+    content: "\e91b";
+}
+.supermapol-icons-line:before {
+    content: "\e91c";
+}
+.supermapol-icons-pen:before {
+    content: "\e91d";
+}
+.supermapol-icons-user:before {
+    content: "\e91e";
+}
+.supermapol-icons-down-end:before {
+    content: "\e91f";
+}
+.supermapol-icons-up-end:before {
+    content: "\e920";
+}
+.supermapol-icons-text:before {
+    content: "\e921";
+}
+.supermapol-icons-customize:before {
+    content: "\e922";
+}
+
+
+div.smMap {
     z-index: 0;
     padding: 0px!important;
     margin: 0px!important;
-//  cursor: default;
     cursor: url("../images/cursors/Pan.cur"),default;
     border:1px solid #3473b7;
 }
@@ -397,7 +527,7 @@ div.minimizeDiv .layerSwitcherContent{
 .smSubPanel-body ul>li li{
     list-style: circle;
 }
-.smShowHideBtn-container{
+/*.smShowHideBtn-container{
     content: "";
     height: 32px;
     width: 32px;
@@ -415,7 +545,7 @@ div.minimizeDiv .layerSwitcherContent{
     content: "";
     height: 16px;
     width: 16px;
-    background-image: url("../images/hide.png");
+    //background-image: url("../images/hide.png");
     border-radius: 0px;
     top: 10px;
     right: 28px;
@@ -433,56 +563,67 @@ div.minimizeDiv .layerSwitcherContent{
     height: 16px;
     cursor: pointer;
     float: left;
-}
-.smCloseBtn-container{
-    content: "";
-    height: 16px;
-    width: 16px;
-    background-image: url("../images/close.png");
-    top: 10px;
-    right: 7px;
-    opacity: 0.8;
+}*/
+span.smCloseBtn-container{
+    height: 15px;
+    width: 15px;
+    top: 13px;
+    right: 25px;
+    opacity: 0.6;
     z-index: 999;
-}
-.smCloseBtn-container:hover{
-    background-image: url("../images/close_hover.png");
-    opacity: 0.9;
+    position: absolute;
 }
 .smMainPanel{
     width: 100%;
-    height: 0px;
+    height: 0;
+    box-sizing: border-box;
+    font-size: 14px;
+    font-family: "Microsoft YaHei";
 }
 .smMainPanel.hide{
     display: none;
 }
 .smPanel-header{
-    background-color: #34495e;
-    border: 1px solid #34495e;
-    color: #ddd;
-    width: 100%;
-    padding: 8px 0 4px;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    background-color:#0083cb;
+    height:41px;
+    padding:10px 10px 10px 10px;
+    border-bottom-color: rgb(229,229,229);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    box-sizing: border-box;
     cursor: move;
 }
 .smMainPanel-title{
     margin: 0;
-    padding-left: 10px;
-    padding-bottom: 6px;
+    font-size: 15px;
+    color: white;
+    height: 21px;
+    line-height: 21px;
+    padding: 0;
+    font-weight: normal;
 }
 .smMainPanel-body{
-    background-color: #fff;
-    width: 100%;
-    font-size: 1.0em;
     border: 1px solid #ddd;
+    box-sizing: border-box;
+    background-color: white;
+    color:#7c7c7c;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
 }
 .smPanelPointer{
     border: 2px solid rgba(0,0,0,0);
 }
 .smPanelPointer:hover{
-    background-color: #ebeff2;
+    background-color: #f2f2f2;
 }
 .smPanelPointer.select{
     cursor: pointer;
-    border: 2px solid #54cbd2;
+    border: 1px solid #56b781;
 }
 .smLayerInfoPanel{
     width: 40%;
@@ -500,6 +641,7 @@ div.minimizeDiv .layerSwitcherContent{
 .smPanel-title{
     padding-left: 14px;
     padding-top: 14px;
+    color: #7c7c7c;
 }
 .smSubPanel-header {
     background-color: #fff;
@@ -524,13 +666,14 @@ div.minimizeDiv .layerSwitcherContent{
     right: 0px
 }
 .smEditPanel table{
-    color: #34495e;
+    color: #7c7c7c;
 }
 .smEditPanel.show{
     display: block;
 }
 .smEditPanelControl{
-    display: block;
+
+    vertical-align:middle !important;
 }
 .smPanelCheckbox{
     float:left;
@@ -606,7 +749,7 @@ input.smPanelValueInput[type="text"]{
     width: 136px;
 }
 .smControlTiledVectorLayerEditor .smSplitLine{
-    border-top: 2px solid #CFCFCA;
+    border-top: 1px solid #ececec;
     text-align: right;
     padding-top: 15px;
     margin-top: 15px;
@@ -616,14 +759,19 @@ input.smPanelValueInput[type="text"]{
     margin-bottom: 18px;
 }
 .smSplitLine a{
-    background-color: #1abc9c;
-    padding: 8px;
-    color: #eee;
+    color: white;
     text-decoration: blink;
-    right: 0px;
+    background-color: #0083cb;
+    display: inline-block;
+    padding: 0;
+    width: 108px;
+    height: 38px;
+    line-height: 38px;
+    text-align: center;
+    border-radius: 2px;
 }
 .smSplitLine a:hover{
-    background-color: #2fe2bf;
+    background-color: #0075b7;
 }
 .smControlTiledVectorLayerEditor .smSplitLineTop.hide{
     display: none;
@@ -633,26 +781,44 @@ input.smPanelValueInput[type="text"]{
 * SuperMap.Tool.Slider
 */
 .smToolSlider{
-    height: 6px;
+    height: 4px;
     position: relative;
     display: inline-block;
-    background: url("../images/sliderbackground.png") -7px -3px;
+    background-color: rgb(178, 185, 191);
+    border-bottom-left-radius: 4px !important;
+    border-bottom-right-radius: 4px !important;
+    border-top-left-radius: 4px !important;
+    border-top-right-radius: 4px !important;
+    box-sizing: border-box;
+    cursor: pointer;
+
 }
-.smToolSlider .smToolCompleteBar{
-    content: " ";
-    height: 0px;
-    margin-top: 1px;
-}
+
 .smToolSlider .smToolSliderBar{
     content: " ";
-    height: 16px;
+    height: 14px;
+    width: 14px !important;
     position: absolute;
     top: -6px;
-    background: url("../images/sliderbtn.png");
-    cursor: url("../images/cursors/Pan.cur"), default;
-    opacity: 0.7;
+    color: rgb(124,124,124);
+    background-color: rgb(124,124,124);
+    cursor: pointer;
+    border-color: rgb(124,124,124) ;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+
 }
 .smToolSlider .smToolSliderBar.down{
-    cursor: url("../images/cursors/PanDown.cur"), default;
+    cursor: pointer;
     opacity: 1;
+    background-color:rgb(77,145,189);
+}
+span.supermapol-icons-clear{
+    opacity: 0.7;
+    cursor: default;
+}
+span.supermapol-icons-clear:hover{
+    opacity: 1.0;
 }

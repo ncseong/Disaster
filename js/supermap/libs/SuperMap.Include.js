@@ -1,5 +1,5 @@
 ﻿(function() {
-    //var isWinRT = (typeof Windows === "undefined") ? false : true;
+    var isWinRT = (typeof Windows === "undefined") ? false : true;
     var r = new RegExp("(^|(.*?\\/))(SuperMap.Include\.js)(\\?|$)"),
     s = document.getElementsByTagName('script'),
     src, m, baseurl = "";
@@ -14,29 +14,31 @@
         }
     }
     function inputScript(inc){
-       // if (!isWinRT) {
+        if (!isWinRT) {
             var script = '<' + 'script type="text/javascript" src="' + inc + '"' + '><' + '/script>';
             document.writeln(script);
-        //} else {
-        //    var script = document.createElement("script");
-        //    script.src = inc;
-        //    document.getElementsByTagName("HEAD")[0].appendChild(script);
-        //}
+        } else {
+            var script = document.createElement("script");
+            script.src = inc;
+            document.getElementsByTagName("HEAD")[0].appendChild(script);
+        }
     }
     function inputCSS(style){
-       // if (!isWinRT) {
+        if (!isWinRT) {
             var css = '<' + 'link rel="stylesheet" href="' + baseurl + '../theme/default/' + style + '"' + '><' + '/>';
             document.writeln(css);
-        //} else {
-        //    var link = document.createElement("link");
-        //    link.rel = "stylesheet";
-        //    link.href =  "/theme/default/" + style;
-        //    document.getElementsByTagName("HEAD")[0].appendChild(link);
-        //}
+        } else { 
+            var link = document.createElement("link");
+            link.rel = "stylesheet";
+            link.href =  "/theme/default/" + style;
+            document.getElementsByTagName("HEAD")[0].appendChild(link);
+        }
     }
     //Loads the class library resource files
     function loadSMLibs() {
         inputScript(baseurl+'SuperMap-8.0.2-13626.js');
+        inputScript(baseurl+'Button.js');
+        inputScript(baseurl+'NavigationHistory.js');
         inputCSS('style.css');
         inputCSS('google.css');
     }

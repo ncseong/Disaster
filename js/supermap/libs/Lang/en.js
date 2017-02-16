@@ -85,6 +85,8 @@ SuperMap.Lang.en = {
     'm': "m",
     'ft': "ft",
 
+    'cloudLayerAttr': '&copy;2016 AMap GS(2015)2681',
+
     //VectorMapEditor
     'editorName':"VectorMapEditor",
     'layerList':"LayerList",

@@ -1,4 +1,3 @@
-
 /**
  * @requires SuperMap/Util.js
  * @requires SuperMap/Layer/CanvasLayer.js
@@ -56,24 +55,29 @@ SuperMap.Layer.VWorldLayer = SuperMap.Class(SuperMap.CanvasLayer, {
      * name - {String} Layer name
      */
     initialize: function(name, options) {
-    	var resolutionsArr = [
-		                  2445.98490512499, 1222.99245256249, 611.49622628138, 305.748113140558,
-		                  152.874056570411, 76.437028285073, 38.2185141425366, 19.1092570712683,
-		                  9.55462853563415, 4.77731426794937, 2.38865713397468, 1.19432856685505,
-		                  0.597164283559817,0.29858214177991,0.14929107088996
-		                 ] ;
-    	var scalesArr = [
-		                  9244648.868618, 4622324.434309, 2311162.217155, 1155581.108577,
-		                  577790.554289, 288895.277144, 144447.638572, 72223.819286,
-		                  36111.909643, 18055.954822, 9027.977411, 4513.988705,
-		                  2256.994353,1128.4971765,564.24858825
-		                 ] ;
+    	var resLen = 13;
+        var resStart = 0;
+    	var resolutionsArr = [] ;
+    	var scalesArr = [] ;
+    	var dpi = 95.99999999999984;
+
+        for(var i=resStart;i<=resLen;i++){
+            var res3857 = 2445.98/Math.pow(2,i);
+            resolutionsArr.push(res3857);
+           // console.log(i+":"+res3857);
+            var scale3857 = 0.0127/dpi/res3857;
+            scalesArr.push(scale3857);
+        }
+
         options = SuperMap.Util.extend({
-            projection: "EPSG:900913",
-            //minZoom : 7
+            projection: "EPSG:3857",
+            //minZoom : 6 ,
             resolutions :resolutionsArr,
-            scales : scalesArr
+            scales : scalesArr,
+			dpi : dpi,
+			useCORS:true
         }, options);
+
         SuperMap.CanvasLayer.prototype.initialize.apply(this,[name,this.url,{},options] );
     },
 
@@ -81,7 +85,7 @@ SuperMap.Layer.VWorldLayer = SuperMap.Class(SuperMap.CanvasLayer, {
      * Method: clone
      */
     clone: function(obj) {
-        if (obj === null) {
+        if (obj == null) {
             obj = new SuperMap.Layer.VWorldLayer(
                 this.name, this.url, this.getOptions());
         }
@@ -109,7 +113,6 @@ SuperMap.Layer.VWorldLayer = SuperMap.Class(SuperMap.CanvasLayer, {
      */
     getTileUrl: function (xyz) {
         var me = this,  url;
-        //console.log(xyz.z);
         if (SuperMap.Util.isArray(this.url)) {
 
             url = me.selectUrl(xyz, this.url);
@@ -121,20 +124,5 @@ SuperMap.Layer.VWorldLayer = SuperMap.Class(SuperMap.CanvasLayer, {
         });
         return  url;
     },
-    /**
-     * Method: selectUrl
-     * Select a reasonable url from a group of url arrays with a certain method
-     * Parameters:
-     * xyz - {Object}  A group key value pair denotes the index of the X, Y and Z direction.
-     * urls - {Array(String)} url array
-     *
-     * Returns:
-     * {String} A reasonable url which is mainly used to visit multiple servers for plotting, and improve efficiency
-     */
-    selectUrl: function(xyz, urls) {
-        var id=Math.abs(xyz.x+xyz.y)%urls.length;
-        var url=urls[id];
-        return url;
-    },
-    //CLASS_NAME: "SuperMap.Layer.VWorldLayer"
+    CLASS_NAME: "SuperMap.Layer.VWorldLayer"
 });
