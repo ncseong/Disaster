@@ -28,6 +28,8 @@ var init = {
       controls:[
       new SuperMap.Control.ScaleLine(),
       new SuperMap.Control.MousePosition(),
+      new SuperMap.Control.ZoomBox(),
+      new SuperMap.Control.DragPan(),
       new SuperMap.Control.Navigation({
           dragPanOptions: {
           enableKinetic: true
