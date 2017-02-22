@@ -56,7 +56,7 @@ SuperMap.Layer.VWorldLayer = SuperMap.Class(SuperMap.CanvasLayer, {
      */
     initialize: function(name, options) {
     	var resLen = 13;
-        var resStart = 0;
+      var resStart = 0;
     	var resolutionsArr = [] ;
     	var scalesArr = [] ;
     	var dpi = 95.99999999999984;
@@ -70,12 +70,12 @@ SuperMap.Layer.VWorldLayer = SuperMap.Class(SuperMap.CanvasLayer, {
         }
 
         options = SuperMap.Util.extend({
-            projection: "EPSG:3857",
-            //minZoom : 6 ,
-            resolutions :resolutionsArr,
-            scales : scalesArr,
-			dpi : dpi,
-			useCORS:true
+          projection: "EPSG:3857",
+          //minZoom : 6 ,
+          resolutions: resolutionsArr,
+          scales: scalesArr,
+          dpi : dpi,
+			    useCORS:true
         }, options);
 
         SuperMap.CanvasLayer.prototype.initialize.apply(this,[name,this.url,{},options] );

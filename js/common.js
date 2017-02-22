@@ -47,6 +47,17 @@ var init = {
     // 배경지도 레이어
     init.baseLayer = new SuperMap.Layer.VWorldLayer("기본지도");
     init.baseLayer.url = ['http://xdworld.vworld.kr:8080/2d/Base/201512/${z}/${x}/${y}.png'];
+    // init.baseLayer = new SuperMap.Layer.TiledDynamicRESTLayer("Base Map", urls.baseMap, {
+    //   transparent: true,
+    //   cacheEnabled: false,
+    //   redirect: false,
+    //   overlapDisplayed: true
+    // }, {
+    //   maxResolution:"auto",
+    //   useCanvas: false,
+    //   projection: "EPSG:4326",
+    //   isBaseLayer: true
+    // });
     init.testLayer = new SuperMap.Layer.TiledDynamicRESTLayer("Test Map", urls.testMap, {
       transparent: true,
       cacheEnabled: false,
@@ -55,6 +66,7 @@ var init = {
       overlapDisplayed: true
     }, {
       maxResolution:"auto",
+      useCanvas: false,
       projection: "EPSG:3857",
       isBaseLayer: false
     });

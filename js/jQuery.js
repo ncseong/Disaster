@@ -1,16 +1,25 @@
 $(document).ready(function() {
 
+
+
   // 마우스 우클릭 방지
   document.addEventListener("contextmenu", function(e){
       e.preventDefault();
   }, false);
 
-  // 도구 감춤
-  $('#tool').hide();
-
   // 넓이 조정
-  $('#tool').css('width',$('#btn_tool').width());
-  $('#tool').find('img').css('width', $('#btn_tool').width());
+  $('#top-bar').find('ul').css('width',$('#btn_tool').outerWidth());
+  // 크롬에서만 먹힘
+  // $('#top-bar').find('ul').find('img').css('padding',$('#btn_tool').css('padding'));
+  $('#top-bar').find('ul').find('img').css('padding-left',$('#btn_tool').css('padding-left'));
+  $('#top-bar').find('img').css('width', $('#btn_tool').width());
+  $('#top-bar').find('ul').hide();
+
+  $('#map').css('height',$('#wrapper').height()-40);
+
+  $(window).resize(function(){
+    $('#map').css('height',$('#wrapper').height()-40);
+  });
 
   // 마우스오버시 이미지 변경
   $('#top-bar').find('img').hover(function() {
@@ -27,7 +36,7 @@ $(document).ready(function() {
 
   // 도구 클릭시 하위메뉴를 보여줌
   $('#btn_tool').click(function() {
-    $('#tool').toggle();
+    $('#top-bar').find('ul').toggle();
   });
 
   $('.measureTools').click(function() {
@@ -72,6 +81,6 @@ $(document).ready(function() {
   });
 
   $('#printMap').click(function() {
-
+    printMap.createPrintMap('map');
   });
 });

@@ -102,6 +102,9 @@ var measureFunc = {
     var style = {
         strokeOpacity:0,
         fillOpacity: 0,
+        fontSize: 20,
+        fontColor: "red",
+        fontWeight: "bold",
         label: label,
         labelXOffset: 50,
         labelYOffset: -5
@@ -110,6 +113,7 @@ var measureFunc = {
 		init.measureLayer.addFeatures([feature]);
   },
   handleMeasure: function(event) {
+    console.log(event);
     var geometry = null;
 		var units = event.units;
 		var order = event.order;
@@ -137,6 +141,11 @@ var measureFunc = {
 		}
     var style = {
         label: label,
+        labelXOffset: 50,
+        labelYOffset: -5,
+        fontSize: 20,
+        fontColor: "red",
+        fontWeight: "bold",
         strokeWidth: 3,
         strokeOpacity: 0.6,
         strokeColor: "#ff0000",
@@ -153,12 +162,5 @@ var measureFunc = {
     }
 
     init.measureLayer.addFeatures(features);
-
-		var out = "";
-		if(order == 1) {
-			out += "measure: " + measureLocaleString + " " + units;
-		} else {
-			out += "measure: " + measureLocaleString + " " + units + "<sup>2</" + "sup>";
-		}
   }
 };
