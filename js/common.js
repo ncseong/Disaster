@@ -45,19 +45,20 @@ var init = {
     ]});
 
     // 배경지도 레이어
-    init.baseLayer = new SuperMap.Layer.VWorldLayer("기본지도");
-    init.baseLayer.url = ['http://xdworld.vworld.kr:8080/2d/Base/201512/${z}/${x}/${y}.png'];
-    // init.baseLayer = new SuperMap.Layer.TiledDynamicRESTLayer("Base Map", urls.baseMap, {
-    //   transparent: true,
-    //   cacheEnabled: false,
-    //   redirect: false,
-    //   overlapDisplayed: true
-    // }, {
-    //   maxResolution:"auto",
-    //   useCanvas: false,
-    //   projection: "EPSG:4326",
-    //   isBaseLayer: true
-    // });
+    // init.baseLayer = new SuperMap.Layer.VWorldLayer("기본지도");
+    // init.baseLayer.url = ['http://xdworld.vworld.kr:8080/2d/Base/201512/${z}/${x}/${y}.png'];
+    // init.baseLayer.url = ['http://61.32.6.18:9090/iserver/services/vworld/rest/maps/OSM'];
+    init.baseLayer = new SuperMap.Layer.TiledDynamicRESTLayer("Base Map", urls.baseMap, {
+        transparent: true,
+        cacheEnabled: true,
+        redirect: true
+      }, {
+        maxResolution:"auto",
+        useCanvas: false,
+        projection: "EPSG:3857",
+        isBaseLayer: true
+      }
+    );
     init.testLayer = new SuperMap.Layer.TiledDynamicRESTLayer("Test Map", urls.testMap, {
       transparent: true,
       cacheEnabled: false,
@@ -75,7 +76,7 @@ var init = {
   },
   addLayer: function() {
     init.map.addLayers([init.baseLayer, init.testLayer, init.measureLayer]);
-    init.map.setCenter(new SuperMap.LonLat(14229438.5611, 4400366.9779), 1);
+    init.map.setCenter(new SuperMap.LonLat(14229438.5611, 4400366.9779), 7);
     // init.map.setCenter(new SuperMap.LonLat(127.5611, 36.9779), 1);
 
     // 마커 추가시

@@ -11,7 +11,7 @@ $(document).ready(function() {
   $('#top-bar').find('ul').css('width',$('#btn_tool').outerWidth());
   // 크롬에서만 먹힘
   // $('#top-bar').find('ul').find('img').css('padding',$('#btn_tool').css('padding'));
-  $('#top-bar').find('ul').find('img').css('padding-left',$('#btn_tool').css('padding-left'));
+  $('#top-bar').find('ul').find('img').css('margin-left',$('#btn_tool').css('padding-left'));
   $('#top-bar').find('img').css('width', $('#btn_tool').width());
   $('#top-bar').find('ul').hide();
 

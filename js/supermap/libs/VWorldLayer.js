@@ -23,7 +23,8 @@ SuperMap.Layer.VWorldLayer = SuperMap.Class(SuperMap.CanvasLayer, {
      * {String} Three server URLs of the default VWorld, which doesn't need to be set up
      */
     url: [
-        'http://xdworld.vworld.kr:8080/2d/Base/201310/${z}/${x}/${y}.png'
+        'http://61.32.6.18:9090/iserver/services/vworld/rest/maps/OSM'
+        // 'http://xdworld.vworld.kr:8080/2d/Base/201310/${z}/${x}/${y}.png'
     ],
 
 
