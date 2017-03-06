@@ -81,6 +81,10 @@ $(document).ready(function() {
   });
 
   $('#printMap').click(function() {
-    printMap.createPrintMap('map');
+    printMap.createPrintMap('wrapper');
+  });
+
+  $('#savePic').click(function() {
+    savePic.mapToImg(init.map);
   });
 });

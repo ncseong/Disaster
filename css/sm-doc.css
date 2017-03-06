@@ -6,6 +6,7 @@ html{
 #map {
     position:relative;
     height: 560px;
+    width: 100%;
     margin-bottom: 15px;
     clear: both;
 }
@@ -74,25 +75,6 @@ h3 > a {
 .footer {
     margin-top: 20px;
     text-align: center;
-}
-@media (min-width: 1200px) {
-    .container,
-    .navbar-fixed-top .container,
-    .navbar-fixed-bottom .container {
-        width: 960px;
-    }
-}
-
-@media (min-width: 976px) {
-    .container .hero-unit{
-        padding: 60px 400px 60px 60px;
-        background:url(../images/home_banner2.png) no-repeat scroll right bottom transparent;
-        /*ä¿®æ”¹æ ·å¼ä»¥å…¼å®¹firefox
-        background-image:url(../images/home_banner2.png)
-        background-repeat:no-repeat;
-        background-position-x:right;
-        background-position-y:bottom;*/
-    }
 }
 .container .hero-unit{
     border: 1px solid #D6E3F1;
@@ -338,9 +320,8 @@ li.dropListMouseOver {
 }
 .print-header{
     margin: auto;
-    width: 936px;
-    height: 522px;
-    top: 50px;
+    width: 100%;
+    height: auto;
     position: relative;
 }
 .superD{

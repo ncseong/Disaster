@@ -6,23 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <title>재난연</title>
     <link rel="stylesheet" href="css/style.css">
-    <!-- <script type="text/javascript" src="js/jquery-2.2.4.js"></script> -->
-    <!--[if (gte IE 9)|!(IE)]><!-->
-    <script type="text/javascript" src="js/jquery-2.2.4.js"></script>
-    <!--<![endif]-->
-    <!--[if lt IE 9]>
+    <link rel="stylesheet" href="css/print.css" type="text/css" media="print"/>
     <script type="text/javascript" src="js/jquery-1.7.1.js"></script>
-    <![endif]-->
     <script type="text/javascript" src="js/supermap/libs/SuperMap.Include.js"></script>
-    <script type="text/javascript" src="js/supermap/libs/VWorldLayer.js"></script>
+    <!-- <script type="text/javascript" src="js/supermap/libs/VWorldLayer.js"></script> -->
     <script type="text/javascript" src="js/common.js"></script>
     <script type="text/javascript" src="js/addMarker.js"></script>
     <script type="text/javascript" src="js/distanceMeasure.js"></script>
     <script type="text/javascript" src="js/printMap.js"></script>
+    <script type="text/javascript" src="js/savePic.js"></script>
     <script type="text/javascript" src="js/TOC.js"></script>
     <script type="text/javascript" src="js/supermap/libs/Measure.js"></script>
-    <!-- <script type="text/javascript" src="js/supermap/libs/MeasureCustom.js"></script> -->
+    <script type="text/javascript" src="js/supermap/libs/MapToImg.js"></script>
+    <script type="text/javascript" src="js/supermap/libs/html2canvas.js"></script>
     <script type="text/javascript" src="js/jQuery.js"></script>
+    <!-- <script type="text/javascript" src="js/supermap/libs/MeasureCustom.js"></script> -->
 </head>
 <body onload="toc.initToc()">
   <div id="wrapper">
@@ -32,25 +30,17 @@
       <ul>
         <li><img id="distanceMeasure" class="measureTools" src="images/distance_mesure_off.gif" alt=""></li>
         <li><img id="areaMeasure" class="measureTools" src="images/area_mesure_off.gif" alt=""></li>
-        <li><img src="images/savepic_off.gif" alt=""></li>
+        <li><img id="savePic" src="images/savepic_off.gif" alt=""></li>
         <li><img id="printMap" src="images/print_off.gif" alt=""></li>
       </ul>
       <span id="info"><img class="tool-item" src="images/info_off.gif" alt=""></span>
       <span id="area"><img class="tool-item" src="images/area_off.gif" alt=""></span>
     </div>
 
-    <!-- <div id='toolbar'><div>-->
     <div id='result' class='container'></div>
-    <div id="tool">
-      <!-- <ul>
-        <li><img id="distanceMeasure" class="measureTools" src="images/distance_mesure_off.gif" alt=""></li>
-        <li><img id="areaMeasure" class="measureTools" src="images/area_mesure_off.gif" alt=""></li>
-        <li><img src="images/savepic_off.gif" alt=""></li>
-        <li><img id="printMap" src="images/print_off.gif" alt=""></li>
-      </ul> -->
+    <div class="map-container">
+      <div id="map"></div>
     </div>
-    <!-- <div id="layerSwitcher" draggable="true" class="resizable"></div> -->
-    <div id="map"></div>
     <div id="legends"></div>
   </div>
 </body>

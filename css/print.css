@@ -1,0 +1,9 @@
+@media print {
+      body, html, #wrapper {
+        width: 100%;
+      }
+      #map {
+        width: 100px;
+        height: 40%;
+      }
+}

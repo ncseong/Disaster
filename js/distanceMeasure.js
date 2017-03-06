@@ -107,7 +107,9 @@ var measureFunc = {
         fontWeight: "bold",
         label: label,
         labelXOffset: 50,
-        labelYOffset: -5
+        labelYOffset: -5,
+        labelOutlineWidth: 5,
+        labelOutlineColor: "white"
     };
 		feature = new SuperMap.Feature.Vector(geometry.components[length-1], attributes, style);
 		init.measureLayer.addFeatures([feature]);
@@ -162,5 +164,6 @@ var measureFunc = {
     }
 
     init.measureLayer.addFeatures(features);
+    console.log(features);
   }
 };

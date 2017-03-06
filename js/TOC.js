@@ -6,8 +6,14 @@ var toc = {
   },
   getLayersInfo: function() {
     var getLayersInfoService = new SuperMap.REST.GetLayersInfoService(urls.testMap);
-    getLayersInfoService.events.on({ "processCompleted": toc.getLayersInfoCompleted});
+    getLayersInfoService.events.on({
+      "processCompleted": toc.getLayersInfoCompleted,
+      "proccessFailed": toc.failed
+    });
     getLayersInfoService.processAsync();
+  },
+  failed: function(e) {
+    console.log(e);
   },
   // Sublayer 리스트를 배열에 담는다
   getLayersInfoCompleted: function(getLayersInfoEventArgs) {
@@ -18,6 +24,7 @@ var toc = {
             toc.subLayers.push(getLayersInfoEventArgs.result.subLayers.layers[j]);
           }
         }
+        console.log(toc.subLayers);
       }
     }
     toc.installPanel(toc.subLayers);
@@ -108,12 +115,13 @@ var toc = {
   },
   createTempLayer: function() {
     //Sublayer controlling parameter(required):url, mapName and SetLayerStatusParameters
-    var layerStatusParameters = new SuperMap.REST.SetLayerStatusParameters();
-    layerStatusParameters = toc.getLayerStatusList(layerStatusParameters);
-
-    var setLayerStatusService = new SuperMap.REST.SetLayerStatusService(urls.testMap);
-    setLayerStatusService.events.on({ "processCompleted": init.initMap});
-    setLayerStatusService.processAsync(layerStatusParameters);
+    // var layerStatusParameters = new SuperMap.REST.SetLayerStatusParameters();
+    // layerStatusParameters = toc.getLayerStatusList(layerStatusParameters);
+    //
+    // var setLayerStatusService = new SuperMap.REST.SetLayerStatusService(urls.testMap);
+    // setLayerStatusService.events.on({ "processCompleted": init.initMap});
+    init.initMap();
+    // setLayerStatusService.processAsync(layerStatusParameters);
   },
   getLayerStatusList: function(parameters) {
     var layersList = document.getElementsByName("layersList");
